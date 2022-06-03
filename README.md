@@ -27,12 +27,14 @@ SNSという認識ではなく麻雀サイトとして手が出しやすいよ�
 麻雀をやっている仲間を増やしたい時
 
 ## 設計書
-ER図
-https://drive.google.com/file/d/1FTd6ijzfNOw_j-RRNnFM1_WWXvc6KTtZ/view?usp=sharing
-テーブル提議書
-https://docs.google.com/spreadsheets/d/1MeW93aaF4R-oDf6xMHZW3SIzzmi69SuRnvNCZKfOt0g/edit?usp=sharing
-アプリケーション詳細設計
-https://docs.google.com/spreadsheets/d/1lbAHob2EfZcPesW66nMoy1BIwK5-prOeLfUr7-DGzbs/edit?usp=sharing
+- ER図
+- https://drive.google.com/file/d/1FTd6ijzfNOw_j-RRNnFM1_WWXvc6KTtZ/view?usp=sharing
+
+- テーブル提議書
+- https://docs.google.com/spreadsheets/d/1MeW93aaF4R-oDf6xMHZW3SIzzmi69SuRnvNCZKfOt0g/edit?usp=sharing
+
+- アプリケーション詳細設計
+- https://docs.google.com/spreadsheets/d/1lbAHob2EfZcPesW66nMoy1BIwK5-prOeLfUr7-DGzbs/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -40,7 +42,3 @@ https://docs.google.com/spreadsheets/d/1lbAHob2EfZcPesW66nMoy1BIwK5-prOeLfUr7-DG
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
