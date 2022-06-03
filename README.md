@@ -28,13 +28,13 @@ SNSという認識ではなく麻雀サイトとして手が出しやすいよ�
 
 ## 設計書
 - ER図
-- https://drive.google.com/file/d/1FTd6ijzfNOw_j-RRNnFM1_WWXvc6KTtZ/view?usp=sharing
+　　 https://drive.google.com/file/d/1FTd6ijzfNOw_j-RRNnFM1_WWXvc6KTtZ/view?usp=sharing
 
 - テーブル提議書
-- https://docs.google.com/spreadsheets/d/1MeW93aaF4R-oDf6xMHZW3SIzzmi69SuRnvNCZKfOt0g/edit?usp=sharing
+　　 https://docs.google.com/spreadsheets/d/1MeW93aaF4R-oDf6xMHZW3SIzzmi69SuRnvNCZKfOt0g/edit?usp=sharing
 
 - アプリケーション詳細設計
-- https://docs.google.com/spreadsheets/d/1lbAHob2EfZcPesW66nMoy1BIwK5-prOeLfUr7-DGzbs/edit?usp=sharing
+　　 https://docs.google.com/spreadsheets/d/1lbAHob2EfZcPesW66nMoy1BIwK5-prOeLfUr7-DGzbs/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
