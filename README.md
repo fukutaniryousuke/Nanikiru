@@ -17,23 +17,23 @@
 SNSという認識ではなく麻雀サイトとして手が出しやすいようになるのではないかと思いこのサイトを作成いたしました。
 
 ### ターゲットユーザ
-麻雀が好きな人
-何切る問題が好きな人
-麻雀仲間を増やしたい人
+- 麻雀が好きな人
+- 何切る問題が好きな人
+- 麻雀仲間を増やしたい人
 
 ### 主な利用シーン
-麻雀で負けた時、何を切るのか悩んだ時など他の人の意見が欲しい時
-麻雀について熱く語り合いたい時
-麻雀をやっている仲間を増やしたい時
+- 麻雀で負けた時、何を切るのか悩んだ時など他の人の意見が欲しい時
+- 麻雀について熱く語り合いたい時
+- 麻雀をやっている仲間を増やしたい時
 
 ## 設計書
-- ER図
+- ER図<br>
 　　 https://drive.google.com/file/d/1FTd6ijzfNOw_j-RRNnFM1_WWXvc6KTtZ/view?usp=sharing
 
-- テーブル提議書
+- テーブル提議書<br>
 　　 https://docs.google.com/spreadsheets/d/1MeW93aaF4R-oDf6xMHZW3SIzzmi69SuRnvNCZKfOt0g/edit?usp=sharing
 
-- アプリケーション詳細設計
+- アプリケーション詳細設計<br>
 　　 https://docs.google.com/spreadsheets/d/1lbAHob2EfZcPesW66nMoy1BIwK5-prOeLfUr7-DGzbs/edit?usp=sharing
 
 ## 開発環境
