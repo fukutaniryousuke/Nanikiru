@@ -11,9 +11,13 @@
   </head>
 
   <body>
-     <%= link_to destroy_customer_session_path, method: :delete do %>
-     ログアウト
-     <% end %>
+    <% if customer_signed_in? %>
+    <% elsif admin_signed_in? %>
+     <%= render "layouts/admin_header" %>
+    <% else %>
+    <% end %>
+   <main>
     <%= yield %>
+   </main>
   </body>
 </html>
