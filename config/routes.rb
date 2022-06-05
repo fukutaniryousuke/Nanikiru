@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  
+
   root to: "public/home#top"
   get '/about' => 'public/home#about'
-  
+
   namespace :admin do
     get '/top' => 'home#top'
     resources :customers, only:[:show, :edit, :update]
   end
-  
+
+
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
