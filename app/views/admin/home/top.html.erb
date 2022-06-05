@@ -1,11 +1,39 @@
-<h1>Admin::Home#top</h1>
-<table class="table">
-  <thead>
-    
-  </thead>
-  <tr>
-    <td><%= @customers.name %></td>
-    <td></td>
-  </tr>
-  
-</table>
+<div class="container">
+  <div class="row">
+    <h2 class="mt-5">会員一覧</h2>
+    <table class="table table-hover">
+      <thead class="table-success">
+        <tr>
+          <th>ID</th>
+          <th>名前</th>
+          <th>イメージ画像</th>
+          <th>メールアドレス</th>
+          <th>会員ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+        <tr onclick='window.location="<%= '/admin/customers/' + customer.id.to_s %>"' role="link">
+          <td><%= customer.id %></td>
+          <td><%= customer.name %></td>
+          <td>
+            <% if customer.profile_image.attached? %>
+             <%= image_tag customer.profile_image, size: "60x60" %>
+            <% else %>
+             <%= image_tag "majan", size: "60x60" %>
+            <% end %>
+          </td>
+          <td> <%= customer.email %></td>
+          <td>
+            <% if customer.is_deleted %>
+            退会
+            <% else %>
+            <span class="text-success font-weight-bold">有効</span>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
