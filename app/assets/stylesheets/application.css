@@ -13,11 +13,12 @@
  *= require_tree .
  *= require_self
  */
-.profile_image {
-  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  width: 100px;  /* 縦横を同じ値にする */
-  height: 100px;  /* 縦横を同じ値にする */
-  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+.about {
+  background-image: url(about.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 680px;
+  color: #ffffff;
 }
 .field_with_errors {
   display: contents;

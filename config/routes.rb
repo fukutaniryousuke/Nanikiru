@@ -5,14 +5,15 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   
-  devise_scope :public do
+  devise_scope :customer do
     root to: "public/home#top"
     #public/sessionsコントローラのguest_sign_inアクションを行う
     post "customers/guest_sign_in", to: "public/sessions#guest_sign_in"
+  
     get '/about' => 'public/home#about'
     get '/customers/:id' => 'public/customers#show', as: "customers"
     get '/customers/:id/edit' => 'public/customers#edit', as:"edit_customers"
-    patch '/customers/:id' => 'public/customer#update'
+    patch '/customers/:id' => 'public/customers#update'
     get 'customers/unsubscribe' => 'public/customers#unsubscribe'
   end
   

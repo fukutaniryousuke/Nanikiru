@@ -1,6 +1,13 @@
 <div class="mt-4 container">
   <div class="row">
     <div class="col-md-9">
+      <h1>
+        <% if current_customer %>
+         <%= image_tag "senten", size: "70x70" %>マイページ<%= image_tag "senten", size: "70x70" %>
+        <% else %>
+         <%= @customer.name %>さん
+        <% end %>
+      </h1>
       <h2>
         <% if @customer.profile_image.attached? %>
          <%= image_tag @customer.profile_image, size: "100x100", class: "profile_image" %>
@@ -22,6 +29,11 @@
          <%= link_to edit_customers_path, class: "btn btn-secondary" do %>
            編集
          <% end %>
+        <% end %>
+        <% if @customer.name != "guestuser" %>
+        <div class='row'>
+          <%= link_to '',edit_customers_path,class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+        </div>
         <% end %>
     </div>
   </div>
