@@ -11,13 +11,13 @@
             <li class="nav-item active">
                 
             </li>
-            <li class="nav-item text-light">
-                <%= link_to admin_top_path, class: "text-light" do %>
+            <li>
+                <%= link_to admin_top_path, class: "nav-item text-light" do %>
                  会員一覧
                 <% end %>
             </li>
-            <li class="nav-item">
-                <%= link_to destroy_customer_session_path, method: :delete, class: "text-light" do %>
+            <li>
+                <%= link_to destroy_customer_session_path, method: :delete, class: "nav-item text-light" do %>
                  ログアウト
                 <% end %>
             </li>

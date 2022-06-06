@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     get '/customers/:id' => 'public/customers#show', as: "customers"
     get '/customers/:id/edit' => 'public/customers#edit', as:"edit_customers"
     patch '/customers/:id' => 'public/customers#update'
-    get 'customers/unsubscribe' => 'public/customers#unsubscribe'
+    get 'customers/unsubscribe' => 'public/customers#unsubscribe', as: "unsubscribe"
+    patch '/customers/:id/withdrawal' => 'public/customer#withdrawal', as: "withdrawal"
   end
   
   devise_for :admin, skip:[:registrations, :passwords], controllers: {

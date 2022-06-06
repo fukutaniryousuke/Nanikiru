@@ -14,29 +14,44 @@
  *= require_self
  */
 .about {
-  background-image: url(about.jpeg);
+  background-image: url(back.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   height: 680px;
-  color: #ffffff;
+  font-weight: bold;
 }
+
+.back-image {
+  background-image: url(back.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 680px;
+}
+
 .field_with_errors {
   display: contents;
 }
+
 h1, h2 {
   font-family: STKaiti;
   font-size: 50px;
 }
+
 .field, p {
   font-family: STKaiti;
 }
+
 a {
   font-family: cursive;
 }
+
 .nav-item {
   margin-right: 9px;
   font-family: STKaiti;
 }
+
 .top {
   margin: 30px 0 20px 200px;
 }

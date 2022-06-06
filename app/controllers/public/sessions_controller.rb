@@ -18,13 +18,13 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-    about_path
+    customers_path(current_customer)
   end
-  
+
   def guest_sign_in #ゲストログイン機能
     customer = Customer.guest
     sign_in customer
-    redirect_to about_path, notice: "ゲストとしてログインしました"
+    redirect_to customers_path(customer), notice: "ゲストとしてログインしました"
   end
 
   # protected

@@ -26,15 +26,13 @@
         </tr>
       </table>
         <% if current_customer %>
-         <%= link_to edit_customers_path, class: "btn btn-secondary" do %>
-           編集
-         <% end %>
+          <% if @customer.name != "guestuser" %>
+            <%= link_to edit_customers_path, class: "col-5 btn btn-secondary btn-block" do %>
+             <i class="fas fa-user-cog"></i>編集
+            <% end %>
+          <% end %>
         <% end %>
-        <% if @customer.name != "guestuser" %>
-        <div class='row'>
-          <%= link_to '',edit_customers_path,class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
-        </div>
-        <% end %>
+       
     </div>
   </div>
 </div>
