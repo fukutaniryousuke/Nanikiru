@@ -17,6 +17,15 @@ class Public::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  def after_sign_in_path_for(resource)
+    about_path
+  end
+  
+  def guest_sign_in #ゲストログイン機能
+    customer = Customer.guest
+    sign_in customer
+    redirect_to about_path, notice: "ゲストとしてログインしました"
+  end
 
   # protected
 
