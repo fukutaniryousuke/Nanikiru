@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get '/about' => 'public/home#about'
     get '/customers/:id' => 'public/customers#show', as: "customers"
     get '/customers/:id/edit' => 'public/customers#edit', as:"edit_customers"
+    patch '/customers/:id' => 'public/customer#update'
     get 'customers/unsubscribe' => 'public/customers#unsubscribe'
   end
   

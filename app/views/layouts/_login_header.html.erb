@@ -1,7 +1,7 @@
 <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #006633; height: 80px;">
     <div class="container">
-     <a class="navbar-brand ml-5" href="/" style="font-size:24px; color: #ffffff;">Nanikiru</a>
+     <a class="navbar-brand ml-5" href="/about" style="font-size:24px; color: #ffffff;">Nanikiru</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -16,10 +16,8 @@
              マイページ
            <% end %>
         </li>
-        <li class="nav-item">
-           <%= link_to about_path, class: "text-light" do %>
-              ABOUT
-           <% end %>
+        <li class="nav-item text-light">
+           投稿フォーム
         </li>
         <li>
           <%= link_to destroy_customer_session_path, method: :delete, class: "nav-item text-light" do %>

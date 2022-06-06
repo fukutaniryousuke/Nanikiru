@@ -4,8 +4,12 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
+    @customer = Customer.find(params[:id])
   end
-
+  
+  def update
+  end
+  
   def unsubscribe
   end
 end
