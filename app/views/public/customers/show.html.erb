@@ -1,6 +1,6 @@
 <div class="mt-4 container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="show p-3 col-md-4 shadow-lg rounded px-0 my-5">
       <h1>
         <% if current_customer %>
          <%= image_tag "senten", size: "70x70" %>マイページ<%= image_tag "senten", size: "70x70" %>
@@ -16,13 +16,13 @@
         <% end %>
       </h2>
       <table class="table" width="100">
-        <tr class="row">
-          <th class="col-3">ユーザーID</th>
-          <td class="col-2"><%= @customer.id %></td>
+        <tr>
+          <th>ユーザーID</th>
+          <td><%= @customer.id %></td>
         </tr>
-        <tr class="row">
-          <th class="col-3">名前</th>
-          <td class="col-2"><%= @customer.name %></td>
+        <tr>
+          <th>名前</th>
+          <td><%= @customer.name %></td>
         </tr>
       </table>
         <% if current_customer %>

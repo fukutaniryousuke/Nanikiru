@@ -1,26 +1,27 @@
 <div class="container">
   <div class="row">
-    <div class="m-5 mx-auto">
+    <div class="edit p-5 m-5 mx-auto shadow-lg rounded">
       <h2><%= image_tag "hatu", size: "70x70" %>プロフィールを編集<%= image_tag "hatu", size: "70x70" %></h2>
         <%= form_with model: @customer, url: {controller: 'public/customers', action: 'update' } do |f| %>
-          <div class="form-group">
-            <%= f.label :id, "会員ID" %>
+          <div class="form-group row">
+            <%= f.label :id, "会員ID", class: "col-4" %>
             <%= @customer.id %>
           </div>
-          <div class="form-group">
-            <%= f.label :name, "名前" %>
+          <div class="form-group row">
+            <%= f.label :name, "名前", class: "col-4" %>
             <%= f.text_field :name %>
           </div>
-          <div class="form-group">
-            <%= f.label :profile_image, "画像" %>
-            <%= f.file_field :profile_image, accept: "image/*" %>
+          <div class="form-group row">
+            <%= f.label :profile_image, "画像", class: "col-4" %>
+            <%= f.file_field :profile_image, accept: "image/*", class: "col-8" %>
           </div>
-          <div class="form-group">
-            <%= f.label :email, "メールアドレス" %>
+          <div class="form-group row">
+            <%= f.label :email, "メールアドレス", class: "col-4" %>
             <%= f.email_field :email %>
           </div>
-          <%= f.submit "変更" %>
+          <%= f.submit "変更を保存" %>
         <% end %>
+        <%= link_to "退会する", unsubscribe_path(current_customer), class: "mt-3 btn btn-danger btn-sm" %>
     </div>
   </div>
 </div>

@@ -13,27 +13,25 @@
  *= require_tree .
  *= require_self
  */
-.about {
-  background-image: url(back.jpeg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 680px;
-  font-weight: bold;
-}
 
-.back-image {
+main {
   background-image: url(back.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   height: 680px;
+}
+.about {
+  font-weight: bold;
+  line-height: 2rem;
 }
 
 .field_with_errors {
   display: contents;
 }
-
+.edit, .show {
+  background-color: white;
+}
 h1, h2 {
   font-family: STKaiti;
   font-size: 50px;
