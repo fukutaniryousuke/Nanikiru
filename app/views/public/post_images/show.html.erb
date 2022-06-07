@@ -1,5 +1,9 @@
-<h1>Public::PostImages#show</h1>
-<p>Find me in app/views/public/post_images/show.html.erb</p>
-<%= @post_image.title %>
-<%= @post_image.image %>
-<%= @post_image.body %>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <%= @post_image.title %><br>
+      <%= image_tag @post_image.image, size: "600x400" %><br>
+      <%= @post_image.body %>
+    </div>
+  </div>
+</div>
