@@ -23,12 +23,24 @@ class Public::PostImagesController < ApplicationController
   end
 
   def edit
+    @post_image = PostImage.find(params[:id])
   end
 
   def update
+    @post_image = PostImage.find(params[:id])
+    if @post_image.update(post_image_params)
+      redirect_to post_image_path(@post_image)
+      flash[:notice] = "変更を完了しました"
+    else
+      render "edit"
+    end
   end
 
   def destroy
+    @post_image = PostImage.find(params[:id])
+    @post_image.delete
+    redirect_to customers_path(current_customer)
+    flash[:notice] = "投稿を削除しました"
   end
 
   private

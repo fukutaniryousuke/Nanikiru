@@ -1,9 +1,27 @@
 <div class="container" style="padding-top: 100px;">
-  <div class="row">
-    <div class="mx-auto">
-      <%= @post_image.title %><br>
-      <%= image_tag @post_image.image, size: "600x400" %><br>
-      <%= @post_image.body %>
+  <div class="card shadow-lg" style="border-radius: 1em;">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <%= image_tag @post_image.image, size: "555x400" %>
+      </div>
+      <div class="col-md-6">
+          <h5 class="card-header">
+            <%= image_tag @post_image.customer.profile_image, size: "30x30" %>
+            <%= @post_image.title %>
+            <!--投稿者なら表示される編集ボタン、削除ボタン-->
+            <% if current_customer == @post_image.customer %>
+              <%= link_to edit_post_image_path(@post_image), class: "ml-5 text-reset" do %>
+                <i class="fa-solid fa-pen-to-square"></i>
+              <% end %>
+              <%= link_to post_image_path(@post_image), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "ml-3 text-reset" do %>
+              <i class="fa-solid fa-trash-can"></i>
+              <% end %>
+            <% end %>
+          </h5>
+        <div class="card-body">
+          <div class="card-text"><%= @post_image.body %></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

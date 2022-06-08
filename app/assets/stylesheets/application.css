@@ -17,14 +17,14 @@
 main {
   background-image: url(back.jpeg);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   height: 2000px;
 }
 .index {
   background-image: url(back.jpeg);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
 }
 .about {
@@ -47,13 +47,14 @@ h1, h2 {
   font-family: STKaiti;
 }
 
-a {
+.navbar-brand {
   font-family: cursive;
 }
 
 .nav-item {
   margin-right: 9px;
-  font-family: STKaiti;
+  font-family: STKaiti,
+  cursi;
 }
 
 .top {
