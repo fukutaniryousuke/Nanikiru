@@ -2,10 +2,10 @@
   <div class="row">
     <div class="show p-3 col-md-4 shadow-lg rounded px-0 my-5">
       <h1>
-        <% if current_customer %>
+        <% if current_customer == @customer %>
          <%= image_tag "senten", size: "70x70" %>マイページ<%= image_tag "senten", size: "70x70" %>
         <% else %>
-         <%= @customer.name %>さん
+         <%= image_tag "senten", size: "70x70" %><%= @customer.name %>さん<%= image_tag "senten", size: "70x70" %>
         <% end %>
       </h1>
       <h2>
@@ -25,7 +25,7 @@
           <td><%= @customer.name %></td>
         </tr>
       </table>
-        <% if current_customer %>
+        <% if current_customer == @customer %>
           <% if @customer.name != "guestuser" %>
             <%= link_to edit_customers_path, class: "col-5 btn btn-secondary btn-block" do %>
              <i class="fas fa-user-cog"></i>編集
@@ -33,7 +33,7 @@
           <% end %>
         <% end %>
     </div>
-    <div class="col-md-6 offset-2">
+    <div class="offset-2">
       <%= render "index", post_images: @post_images %>
     </div>
   </div>
