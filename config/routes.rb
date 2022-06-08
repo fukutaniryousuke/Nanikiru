@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get 'customers/:id/unsubscribe' => 'public/customers#unsubscribe', as: "unsubscribe"
     patch '/customers/:id/withdrawal' => 'public/customers#withdrawal', as: "withdrawal"
     resources :post_images, only:[:new, :create, :show, :index, :edit, :update, :destroy], controller: "public/post_images"
+    resources :post_comments, only:[:create, :destroy], controller: "public/post_comments"
   end
   
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
