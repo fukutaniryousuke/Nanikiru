@@ -9,6 +9,7 @@
             <%= link_to post_image_path(post_image) do %>
               <%= image_tag post_image.image, size: "200x150" %>
             <% end %>
+            コメント<%= post_image.post_comments.count %>件
         </div>
       <% end %>
     </div>
