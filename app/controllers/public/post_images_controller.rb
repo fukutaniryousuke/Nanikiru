@@ -40,7 +40,7 @@ class Public::PostImagesController < ApplicationController
   def destroy
     @post_image = PostImage.find(params[:id])
     @post_image.delete
-    redirect_to customers_path(current_customer)
+    redirect_to customer_path(current_customer)
     flash[:notice] = "投稿を削除しました"
   end
 

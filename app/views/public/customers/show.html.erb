@@ -27,7 +27,7 @@
       </table>
         <% if current_customer == @customer %>
           <% if @customer.name != "guestuser" %>
-            <%= link_to edit_customers_path, class: "col-5 btn btn-secondary btn-block" do %>
+            <%= link_to edit_customer_path, class: "col-5 btn btn-secondary btn-block" do %>
              <i class="fas fa-user-cog"></i>編集
             <% end %>
           <% end %>

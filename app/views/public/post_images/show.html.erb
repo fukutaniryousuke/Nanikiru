@@ -8,6 +8,7 @@
           <h5 class="card-header">
             <%= image_tag @post_image.customer.profile_image, size: "30x30" %>
             <%= @post_image.title %>
+              <%= render "public/favorites/favorite", post_image: @post_image %>
             <!--投稿者なら表示される編集ボタン、削除ボタン-->
             <% if current_customer == @post_image.customer %>
               <%= link_to edit_post_image_path(@post_image), class: "ml-5 text-reset" do %>

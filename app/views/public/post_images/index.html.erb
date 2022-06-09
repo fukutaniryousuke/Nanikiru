@@ -5,7 +5,7 @@
         <% @post_images.each do |post_image| %>
           <div class="mb-4 card shadow-lg" style="border-radius: 1em;">
             <div class="card-header">
-              <%= link_to customers_path(post_image.customer.id) do %>
+              <%= link_to customer_path(post_image.customer.id) do %>
                 <%= image_tag post_image.customer.profile_image, size: "45x45" %>
               <% end %>
               <%= link_to post_image.title, post_image_path(post_image), class: "ml-4 text-reset text-decoration-none" %>
@@ -15,12 +15,14 @@
               <% end %>
             <div class="card-body">
               <%= post_image.body.truncate(29) %>
-              <% if post_image.body.size >= 29 %>
-                  <%= link_to post_image_path(post_image.id) do %>
-                     <p>続きを読む</p>
+                <% if post_image.body.size >= 29 %>
+                    <%= link_to post_image_path(post_image.id) do %>
+                       <p>続きを読む</p>
+                  <% end %>
                 <% end %>
-              <% end %>
                コメント<%= post_image.post_comments.count %>件
+                 <%= render "public/favorites/favorite", post_image: post_image %>
+                 <%= post_image.favorites.count %> いいね
             </div>
           </div>
         <% end %>
