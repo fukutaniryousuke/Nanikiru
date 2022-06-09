@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
   devise_for :customers, skip:[:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -12,10 +16,11 @@ Rails.application.routes.draw do
     post "customers/guest_sign_in", to: "public/sessions#guest_sign_in"
 
     resources :customers, only:[:show, :edit, :update], controller: "public/customers" do
+      resource :relationships, only:[:create, :destroy], controller: "public/relationships"
+      get '/followings' => 'public/relationships#followings'
+      get '/followers' => 'public/relationships#followers'
     end
-    # get '/customers/:id' => 'public/customers#show', as: "customers"
-    # get '/customers/:id/edit' => 'public/customers#edit', as:"edit_customers"
-    # patch '/customers/:id' => 'public/customers#update'
+    
     get 'customers/:id/unsubscribe' => 'public/customers#unsubscribe', as: "unsubscribe"
     patch '/customers/:id/withdrawal' => 'public/customers#withdrawal', as: "withdrawal"
 

@@ -24,12 +24,28 @@
           <th>名前</th>
           <td><%= @customer.name %></td>
         </tr>
+        <tr>
+          <th>フォロー中</th>
+          <td><%= @customer.followings.count %>人</td>
+        </tr>
+        <tr>
+          <th>フォロワー</th>
+          <td><%= @customer.followers.count %>人</td>
+        </tr>
       </table>
         <% if current_customer == @customer %>
           <% if @customer.name != "guestuser" %>
             <%= link_to edit_customer_path, class: "col-5 btn btn-secondary btn-block" do %>
              <i class="fas fa-user-cog"></i>編集
             <% end %>
+          <% end %>
+        <% else %>
+          <% if current_customer.following?(@customer) %>
+            <%= link_to customer_relationships_path(@customer), method: :delete, class: "btn btn-light border border-dark" do %>
+            <i class="fa-solid fa-user-check"></i>
+            <% end %>
+          <% else %>
+            <%= link_to "フォローする", customer_relationships_path(@customer), method: :post, class: "btn btn-primary" %>
           <% end %>
         <% end %>
     </div>
