@@ -25,12 +25,28 @@
           <td><%= @customer.name %></td>
         </tr>
         <tr>
-          <th>フォロー中</th>
-          <td><%= @customer.followings.count %>人</td>
+          <th>
+            <%= link_to customer_followings_path(@customer), class: "text-reset" do %>
+             フォロー中
+            <% end %>
+          </th>
+          <td>
+            <%= link_to customer_followings_path(@customer), class: "text-reset" do %>
+             <%= @customer.followings.count %>人
+            <% end %>
+          </td>
         </tr>
         <tr>
-          <th>フォロワー</th>
-          <td><%= @customer.followers.count %>人</td>
+          <th>
+            <%= link_to customer_followers_path(@customer), class: "text-reset" do %>
+             フォロワー
+            <% end %>
+          </th>
+          <td>
+            <%= link_to customer_followers_path(@customer), class: "text-reset" do %>
+             <%= @customer.followers.count %>人
+            <% end %>
+          </td>
         </tr>
       </table>
         <% if current_customer == @customer %>
@@ -42,7 +58,7 @@
         <% else %>
           <% if current_customer.following?(@customer) %>
             <%= link_to customer_relationships_path(@customer), method: :delete, class: "btn btn-light border border-dark" do %>
-            <i class="fa-solid fa-user-check"></i>
+            外す<i class="fa-solid fa-user-check"></i>
             <% end %>
           <% else %>
             <%= link_to "フォローする", customer_relationships_path(@customer), method: :post, class: "btn btn-primary" %>

@@ -1,0 +1,45 @@
+<div class="container" style="padding-top: 100px;">
+  <div class="row">
+    <table class="table table-hover shadow-lg">
+      <thead class="table-success">
+        <tr>
+          <th></th>
+          <th>名前</th>
+          <th><i class="fa-solid fa-users"></i>フォロー</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% if customers.exists? %>
+        <% customers.each do |customer| %>
+        <tr  onclick='window.location="<%= '/customers/' + customer.id.to_s %>"' role="link">
+          <td>
+            <% if customer.profile_image.attached? %>
+             <%= image_tag customer.profile_image, size: "100x100", class: "profile_image" %>
+            <% else %>
+             <%= image_tag "majan", size: "100x100", class: "profile_image" %>
+            <% end %>
+          </td>
+          <td><%= customer.name %></td>
+          <td>
+             フォロー<%= customer.followings.count %>人<br>
+             フォロワー<%= customer.followers.count %>人
+          </td>
+          <td>
+            <% if current_customer.following?(customer) %>
+              <%= link_to customer_relationships_path(customer), method: :delete,  class: "btn btn-light border border-dark" do %>
+              外す<i class="fa-solid fa-user-check"></i>
+              <% end %>
+            <% else %>
+              <%= link_to "フォローする", customer_relationships_path(customer), method: :post, class: "btn btn-primary" %>
+            <% end %>
+          </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <% else %>
+        <p>※ユーザーはいません</p>
+      <% end %>
+  </div>
+</div>
