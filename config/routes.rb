@@ -21,7 +21,7 @@ Rails.application.routes.draw do
        resource :favorites, only:[:create, :destroy], controller: "public/favorites"#いいね機能
        resources :post_comments, only:[:create, :destroy], controller: "public/post_comments"#コメント機能
     end
-    resources :chats, only:[:show, :create]#DM機能
+    resources :chats, only:[:show, :create], controller: "public/chats"#DM機能
   end
   
 #管理者側

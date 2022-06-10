@@ -1,2 +1,24 @@
-<h1>Public::Chats#show</h1>
-<p>Find me in app/views/public/chats/show.html.erb</p>
+<div class="container" style="padding-top: 100px;">
+  <div class="row">
+    <div class="mx-auto">
+      <h1 id="room" date-room="<%= @room.id %>" date-customer="<%= @customer.id %>">
+        <%= @customer.name %>さん
+      </h1>
+  
+      <div class="message border border-secondary" style="width: 400px; height: 500px;">
+        <% @chats.each do |chat| %>
+          <% if chat.customer_id == current_customer.id %>
+            <P style="text-align: right;"><%= chat.message %></P>
+          <% else %>
+            <P style="text-align: left;"><%= chat.message %></P>
+          <% end %>
+        <% end %>
+      </div>
+       <%= form_with model: @chat, local: false do |f| %>
+          <%= f.text_field :message, class: "chat_field" %>
+          <%= f.hidden_field :room_id %>
+          <%= f.submit "送信", class: "chat-submit" %>
+        <% end %>
+    </div>
+  </div>
+</div>
