@@ -7,6 +7,9 @@ class Customer < ApplicationRecord
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy #フォローされている人取得
   has_many :followings, through: :relationships, source: :followed #自分がフォーローしている人
   has_many :followers, through: :reverse_of_relationships, source: :follower #自分をフォーローしている人
+  has_many :customer_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+  has_many :rooms, through: :customer_rooms, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -19,7 +22,7 @@ class Customer < ApplicationRecord
     customer.name = "guestuser"
    end
   end
-  
+
   #ユーザーをフォローする
   def follow(customer_id)
     relationships.create(followed_id: customer_id)
@@ -32,7 +35,7 @@ class Customer < ApplicationRecord
   def following?(customer)
     followings.include?(customer)
   end
-  
+
   validates :name, presence: true
   validates :email, presence: true
 end
