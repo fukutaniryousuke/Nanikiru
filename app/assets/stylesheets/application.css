@@ -21,7 +21,7 @@ main {
   background-position: center;
   height: 2000px;
 }
-.index, .follow {
+.index, .follow, .chat {
   background-image: url(back.jpeg);
   background-size: cover;
   background-repeat: repeat;
@@ -61,5 +61,50 @@ h1, h2 {
   margin: 20px 0 20px 200px;
 }
 .chat_field {
-  width: 350px;
+  width: 450px;
+  border-radius: 30px;
+}
+.chat-right {
+  position: relative;
+  display: inline-block;
+  margin: 5px 15px 2px 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.chat-right:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-left: 15px solid #e0edff;
+}
+.chat-left {
+  position: relative;
+  display: inline-block;
+  margin: 2px 0 2px 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: white;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.chat-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid white;
 }
