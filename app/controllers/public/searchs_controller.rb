@@ -1,5 +1,5 @@
 class Public::SearchsController < ApplicationController
-
+　before_action :authenticate_customer!
   def search
     @model = params["model"] # 選択したmodelの値を@modelに代入
     @content = params["content"] # 検索ワードを@contentに代入

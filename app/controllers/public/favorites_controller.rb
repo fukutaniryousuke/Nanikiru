@@ -1,5 +1,5 @@
 class Public::FavoritesController < ApplicationController
-
+　before_action :authenticate_customer!
   def create
     post_image = PostImage.find(params[:post_image_id])
     favorite = current_customer.favorites.new(post_image_id: post_image.id)
