@@ -5,7 +5,7 @@
         <%= image_tag @customer.profile_image, size: "50x50", class: "mr-lg-3" %><%= @customer.name %>さん
       </h2>
 
-      <div class="message border border-secondary" style="width: 500px; height: 500px;">
+      <div class="message" style="width: 500px;">
         <% @chats.each do |chat| %>
           <% if chat.customer_id == current_customer.id %>
             <P style="text-align: right;"><span class="chat-right"><%= chat.message %></span></P>

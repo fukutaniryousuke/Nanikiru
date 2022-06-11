@@ -22,13 +22,14 @@ Rails.application.routes.draw do
        resources :post_comments, only:[:create, :destroy], controller: "public/post_comments"#コメント機能
     end
     resources :chats, only:[:show, :create], controller: "public/chats"#DM機能
+    get '/search' => 'public/searchs#search'#検索機能
   end
   
 #管理者側
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
-
+  
   namespace :admin do
     get '/top' => 'home#top'
     resources :customers, only:[:show, :edit, :update]

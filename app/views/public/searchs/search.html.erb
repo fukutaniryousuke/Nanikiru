@@ -1,0 +1,7 @@
+<% if @model =='customer'%>
+  <h2>【Usersモデルの検索結果】検索ワード：<%= @content %></h2>
+    <%= render 'public/customers/search_index', customers: @records %>
+<% else @model == 'post_image' %>
+  <h3>【Postsモデルの検索結果】検索ワード：<%= @content %></h3>
+    <%= render 'public/post_images/search_index', post_images: @records %>
+<% end %>

@@ -1,4 +1,5 @@
 class Public::PostImagesController < ApplicationController
+  before_action :authenticate_customer!
   def new
     @post_image = PostImage.new
   end
