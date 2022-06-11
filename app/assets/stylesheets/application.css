@@ -14,19 +14,13 @@
  *= require_self
  */
 
-main {
+body {
   background-image: url(back.jpeg);
   background-size: cover;
-  background-repeat: repeat;
-  background-position: center;
-  height: 2000px;
-}
-.index, .follow, .chat {
-  background-image: url(back.jpeg);
-  background-size: cover;
-  background-repeat: repeat;
+  background-repeat: repeat-y;
   background-position: center;
 }
+
 .about {
   font-weight: bold;
   line-height: 2rem;
@@ -107,4 +101,14 @@ h1, h2 {
   margin-top: -15px;
   border: 15px solid transparent;
   border-right: 15px solid white;
+}
+.search-group {
+  background-color: white;
+  font-family: serif;
+  border-radius: 10px;
+}
+.search_form {
+  border-color: white;
+  font-family: serif;
+  border-radius: 10px;
 }

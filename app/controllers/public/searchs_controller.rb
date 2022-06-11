@@ -14,7 +14,8 @@ class Public::SearchsController < ApplicationController
       if method == 'perfect'  # 選択した検索方法がが完全一致だったら
         Customer.where(name: content)
       elsif method == 'partial'# 選択した検索方法がが部分一致だったら
-        Customer.where('name LIKE ?', '%'+'content'+'%')
+        # Customer.where('name LIKE ?', '%'+'content'+'%')
+        Customer.where("name LIKE?","%#{content}%")
       else
         Customer.all
       end
@@ -22,7 +23,7 @@ class Public::SearchsController < ApplicationController
       if method == 'perfect'  # 選択した検索方法がが完全一致だったら
         PostImage.where(title: content)
       elsif method == 'partial' # 選択した検索方法がが部分一致だったら
-        PostImage.where('title LIKE ?', '%'+'content'+'%')
+        PostImage.where("title LIKE?","%#{content}%")
       else
         PostImage.all
       end

@@ -1,6 +1,10 @@
+<div class="search-group">
 <%= form_tag(search_path, method: :get) do %>
-  <%= text_field_tag 'content' %>
-  <%= select_tag 'model', options_for_select({ "ユーザー" => "customer", "局面" => "post_image" }) %>
-  <%= select_tag 'method', options_for_select({ "完全一致" => "perfect", "部分一致" => "partial" }) %>
-  <%= submit_tag '検索' %>
+  <%= text_field_tag 'content', "", {placeholder: "検索", class: "text-center search_form"} %>
+  <%= select_tag 'model', options_for_select({ "ユーザー" => "customer", "局面" => "post_image" }), {class: "search_form"} %>
+  <%= select_tag 'method', options_for_select({ "完全一致" => "perfect", "部分一致" => "partial" }), {class: "search_form"} %>
+   <%= button_tag type: "submit", class: "search_form" do %>
+    <i class="fas fa-search"></i>
+  <% end %>
 <% end %>
+</div>
