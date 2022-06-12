@@ -2,7 +2,6 @@ class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
   before_action :ensure_guest_customer, only: [:edit]
   before_action :ensure_customer, only: [:edit, :update, :unsubscribe, :withdrawal]
-  before_action :set_customer, only: [:favorites]
 
   def show
     @customer = Customer.find(params[:id])
@@ -36,7 +35,11 @@ class Public::CustomersController < ApplicationController
     end
   end
 
- 
+  def favorites
+    favorites= Favorite.where(customer_id: current_customer.id).pluck(:post_image_id)
+    @favorite_post_images = PostImage.find(favorites)
+  end
+
   private
 
   def customer_params

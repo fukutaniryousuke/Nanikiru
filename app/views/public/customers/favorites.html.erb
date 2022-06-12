@@ -1,8 +1,8 @@
-<h2>投稿一覧</h2>
-  <% if post_images.exists? %>
+<div class="container" style="padding-top: 100px">
+  <h2><i class="fa-solid fa-heart text-danger"></i>favorites</h2>
     <div class="row card-wrapper">
-      <% post_images.each do |post_image| %>
-        <div class ="mr-2 mb-2 card shadow-lg">
+      <% @favorite_post_images.each do |post_image| %>
+        <div class ="mr-2 card shadow-lg">
           <div class="card-header">
             <%= link_to post_image.title, post_image_path(post_image), class: "text-reset text-decoration-none" %>
           </div>
@@ -14,6 +14,4 @@
         </div>
       <% end %>
     </div>
-  <% else %>
-    <p class="font-weight-bold" style="font-size: 20px;">※投稿はありません</p>
-  <% end %>
+</div>
