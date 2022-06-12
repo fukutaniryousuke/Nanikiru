@@ -9,24 +9,24 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <div style="margin-left: 80px;"><%= render "public/searchs/form" %></div>
         <ul class="navbar-nav ml-auto">
-        <li class="nav-item text-light">
+        <li>
            <%= link_to post_images_path, class: "nav-item text-light" do %>
-            投稿一覧
+            <i class="fas fa-home"></i>投稿一覧
            <% end %>
         </li>
         <li>
            <%= link_to customer_path(current_customer), class: "nav-item text-light" do %>
-             マイページ
+             <i class="far fa-user"></i>マイページ
            <% end %>
         </li>
         <li class="nav-item text-light">
            <%= link_to new_post_image_path, class: "nav-item text-light" do %>
-             投稿フォーム
+            <i class="fas fa-pencil"></i>投稿フォーム
            <% end %>
         </li>
         <li>
           <%= link_to destroy_customer_session_path, method: :delete, class: "nav-item text-light" do %>
-             ログアウト
+             <i class="fas fa-sign-out"></i>ログアウト
           <% end %>
         </li>
         </ul>
