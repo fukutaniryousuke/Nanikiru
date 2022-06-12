@@ -63,6 +63,9 @@
           <% else %>
             <%= link_to "フォローする", customer_relationships_path(@customer), method: :post, class: "btn btn-primary" %>
           <% end %>
+            <% if current_customer != @customer && current_customer.following?(@customer) && @customer.following?(current_customer) %>
+              <%= link_to "メッセージを送る", chat_path(@customer.id), class: "btn btn-light border border-dark" %>
+            <% end %>
         <% end %>
     </div>
     <div class="offset-2">
