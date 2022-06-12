@@ -14,9 +14,8 @@ Rails.application.routes.draw do
       resource :relationships, only:[:create, :destroy], controller: "public/relationships"#フォロー機能
       get '/followings' => 'public/relationships#followings'#フォロー一覧
       get '/followers' => 'public/relationships#followers'#フォロワー一覧
-      get '/favorites' => 'public/favorites#favorites'
     end
-    get 'customers/:id/unsubscribe' => 'public/customers#unsubscribe', as: "unsubscribe"
+    get 'customers/:id/unsubscribe' => 'public/customers#unsubscribe', as: "unsubscribe" 
     patch '/customers/:id/withdrawal' => 'public/customers#withdrawal', as: "withdrawal"#退会
     resources :post_images, only:[:new, :create, :show, :index, :edit, :update, :destroy], controller: "public/post_images" do
        resource :favorites, only:[:create, :destroy], controller: "public/favorites"#いいね機能
@@ -25,12 +24,12 @@ Rails.application.routes.draw do
     resources :chats, only:[:show, :create], controller: "public/chats"#DM機能
     get '/search' => 'public/searchs#search'#検索機能
   end
-
+  
 #管理者側
   devise_for :admin, skip:[:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
-
+  
   namespace :admin do
     get '/top' => 'home#top'
     resources :customers, only:[:show, :edit, :update]

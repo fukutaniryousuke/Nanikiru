@@ -2,6 +2,7 @@ class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
   before_action :ensure_guest_customer, only: [:edit]
   before_action :ensure_customer, only: [:edit, :update, :unsubscribe, :withdrawal]
+  before_action :set_customer, only: [:favorites]
 
   def show
     @customer = Customer.find(params[:id])
@@ -35,6 +36,7 @@ class Public::CustomersController < ApplicationController
     end
   end
 
+ 
   private
 
   def customer_params
