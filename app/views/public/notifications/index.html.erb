@@ -1,0 +1,13 @@
+<h2 class="text-center" style="padding-top:100px;">通知</h2>
+    <%= link_to destroy_all_path, method: :delete do %>
+        <i class="ml-5 fas fa-trash" style="color: black;"></i>
+        <h7 style="color: black;">全削除</h7>
+    <% end %>
+    <hr>
+<% if @notifications.exists? %>
+    <div class="users-index">
+        <%= render @notifications %>
+    </div>
+<% else %>
+    <p class="ml-5">通知はありません</p>
+<% end %>

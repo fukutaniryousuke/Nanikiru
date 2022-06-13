@@ -25,17 +25,24 @@
       </div>
     </div>
   </div>
-  
+
    <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-10">
+      <p class="mt-2">コメント</p>
       <% @post_image.post_comments.each do |post_comment| %>
-          <%= image_tag post_comment.customer.profile_image, size: "30x30" %>
-          <%= post_comment.customer.name %>
-          <%= post_comment.comment %>
-          <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+      <table class="table">
+        <div style="background-color: white;">
+          <tr>
+          <td><%= image_tag post_comment.customer.profile_image, size: "30x30" %></td>
+          <td><%= link_to post_comment.customer.name, customer_path(post_comment.customer) %></td>
+          <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= post_comment.comment %></td>
         <% if post_comment.customer == current_customer %>
-          <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+          <td><%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %></td>
         <% end %>
+          </tr>
+        </div>
+      </table>
       <% end %>
     </div>
   </div>
@@ -43,7 +50,7 @@
     <div class="col-md-6">
       <%= form_with model: [@post_image, @post_comment] do |f| %>
        <%= f.text_area :comment, rows:'5', placeholder: "コメントはここに" %>
-       <%= f.submit "送信する" %>
+       <%= f.submit "送信する", class: "mb-5" %>
       <% end %>
     </div>
   </div>

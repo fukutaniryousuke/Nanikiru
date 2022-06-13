@@ -23,6 +23,8 @@ Rails.application.routes.draw do
        resources :post_comments, only:[:create, :destroy], controller: "public/post_comments"#コメント機能
     end
     resources :chats, only:[:show, :create], controller: "public/chats"#DM機能
+    resources :notifications, only:[:index], controller: "public/notifications" 
+    delete "/notifications/destroy_all" => "public/notifications#destroy_all", as: "destroy_all"
     get '/search' => 'public/searchs#search'#検索機能
   end
 

@@ -4,6 +4,12 @@ class Public::FavoritesController < ApplicationController
     favorite = current_customer.favorites.new(post_image_id: post_image.id)
     favorite.save
     redirect_back(fallback_location: root_path)
+    post_image.create_notification_by(current_customer)
+    #必要ないかも？
+    # respond_to do |format|
+    #   format.html {redirect_to request.referrer}
+    #   format.js
+    #   end
   end
 
   def destroy

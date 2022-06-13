@@ -2,14 +2,16 @@ class Public::RelationshipsController < ApplicationController
   before_action :authenticate_customer!
   def create
     current_customer.follow(params[:customer_id])
+    @customer = Customer.find(params[:customer_id])
+    @customer.create_notification_follow!(current_customer)
     redirect_back(fallback_location: root_path)
   end
-  
+
   def destroy
     current_customer.unfollow(params[:customer_id])
     redirect_back(fallback_location: root_path)
   end
-  
+
   def followings
     customer = Customer.find(params[:customer_id])
     @customers = customer.followings

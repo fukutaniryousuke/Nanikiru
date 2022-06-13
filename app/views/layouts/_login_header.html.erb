@@ -21,13 +21,21 @@
         </li>
         <li class="nav-item text-light">
            <%= link_to new_post_image_path, class: "nav-item text-light" do %>
-            <i class="fas fa-pencil"></i>投稿フォーム
+            <i class="fas fa-pencil"></i>投稿する
            <% end %>
         </li>
         <li>
           <%= link_to destroy_customer_session_path, method: :delete, class: "nav-item text-light" do %>
              <i class="fas fa-sign-out"></i>ログアウト
           <% end %>
+        </li>
+        <% if unchecked_notifications.any? %>
+         <i class="fa fa-circle" style="color: gold;"></i>
+        <% end %>
+        <li>
+            <%= link_to notifications_path, class: "nav-item text-light btn-default" do %>
+            <i class="fa-solid fa-bell"></i>
+            <% end %>
         </li>
         </ul>
       </div>

@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
-  before_action :ensure_guest_customer, only: [:edit]
+  before_action :ensure_guest_customer, only: [:edit, :unsubscribe]
   before_action :ensure_customer, only: [:edit, :update, :unsubscribe, :withdrawal]
 
   def show
