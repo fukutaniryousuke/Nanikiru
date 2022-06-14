@@ -1,0 +1,15 @@
+<% post_image.post_comments.each do |post_comment| %>
+  <table class="table">
+    <div style="background-color: white;">
+      <tr>
+      <td><%= image_tag post_comment.customer.profile_image, size: "30x30" %></td>
+      <td><%= link_to post_comment.customer.name, customer_path(post_comment.customer), remote: true %></td>
+      <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= post_comment.comment %></td>
+    <% if post_comment.customer == current_customer %>
+      <td><%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, remote: true %></td>
+    <% end %>
+      </tr>
+    </div>
+  </table>
+<% end %>

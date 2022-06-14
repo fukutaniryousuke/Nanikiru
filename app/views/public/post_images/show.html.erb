@@ -1,4 +1,4 @@
-<div class="container" style="padding-top: 100px;">
+<div class="container" style="padding-top: 130px;">
   <div class="card shadow-lg" style="border-radius: 1em;">
     <div class="row no-gutters">
       <div class="col-md-6">
@@ -8,7 +8,9 @@
           <h5 class="card-header">
             <%= image_tag @post_image.customer.profile_image, size: "30x30" %>
             <%= @post_image.title %>
+            <span id="favorite_button_<%= @post_image %>">
               <%= render "public/favorites/favorite", post_image: @post_image %>
+            </span>
             <!--投稿者なら表示される編集ボタン、削除ボタン-->
             <% if current_customer == @post_image.customer %>
               <%= link_to edit_post_image_path(@post_image), class: "ml-5 text-reset" do %>
@@ -29,29 +31,12 @@
    <div class="row">
     <div class="col-md-10">
       <p class="mt-2">コメント</p>
-      <% @post_image.post_comments.each do |post_comment| %>
-      <table class="table">
-        <div style="background-color: white;">
-          <tr>
-          <td><%= image_tag post_comment.customer.profile_image, size: "30x30" %></td>
-          <td><%= link_to post_comment.customer.name, customer_path(post_comment.customer) %></td>
-          <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
-          <td><%= post_comment.comment %></td>
-        <% if post_comment.customer == current_customer %>
-          <td><%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %></td>
-        <% end %>
-          </tr>
-        </div>
-      </table>
-      <% end %>
+      <div class="comment_index"><%= render "public/post_comments/index", post_image: @post_image %></div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <%= form_with model: [@post_image, @post_comment] do |f| %>
-       <%= f.text_area :comment, rows:'5', placeholder: "コメントはここに" %>
-       <%= f.submit "送信する", class: "mb-5" %>
-      <% end %>
+      <%= render "public/post_comments/form", post_image: @post_image, post_comment: @post_comment %>
     </div>
   </div>
 </div>

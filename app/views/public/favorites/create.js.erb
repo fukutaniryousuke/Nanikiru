@@ -1,1 +1,2 @@
-$(".favorite_button_<%= @post_image.id %>").html("<%= j(render "public/favorites/favorite", post_image: @post_image) %>");
+$("#favorite_button_<%= @post_image %>").html("<%= j(render "public/favorites/favorite", post_image: @post_image) %>");
+

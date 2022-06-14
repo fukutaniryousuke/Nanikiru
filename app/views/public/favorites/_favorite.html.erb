@@ -1,9 +1,9 @@
  <% if post_image.favorited_by?(current_customer) %>
-     <%= link_to post_image_favorites_path(post_image), method: :delete, class: "ml-3 text-decoration-none" do %>
+     <%= link_to post_image_favorites_path(post_image), method: :delete, remote: true, class: "ml-3 text-decoration-none" do %>
      <i class="fa-solid fa-heart" style="color: red;"></i>
      <% end %>
  <% else %>
-     <%= link_to post_image_favorites_path(post_image), method: :post, class: "ml-3 text-decoration-none text-reset" do %>
+     <%= link_to post_image_favorites_path(post_image), method: :post, remote: true, class: "ml-3 text-decoration-none text-reset" do %>
       <i class="fa-regular fa-heart"></i>
      <% end %>
  <% end %>
