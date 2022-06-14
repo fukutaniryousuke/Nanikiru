@@ -2,7 +2,11 @@
   <table class="table">
     <div style="background-color: white;">
       <tr>
-      <td><%= image_tag post_comment.customer.profile_image, size: "30x30" %></td>
+      <td>
+        <%= link_to customer_path(post_comment.customer) do %>
+          <%= image_tag post_comment.customer.profile_image, size: "30x30" %>
+        <% end %>
+      </td>
       <td><%= link_to post_comment.customer.name, customer_path(post_comment.customer), remote: true %></td>
       <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
       <td><%= post_comment.comment %></td>

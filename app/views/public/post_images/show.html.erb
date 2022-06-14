@@ -6,8 +6,10 @@
       </div>
       <div class="col-md-6">
           <h5 class="card-header">
-            <%= image_tag @post_image.customer.profile_image, size: "30x30" %>
-            <%= @post_image.title %>
+            <%= link_to customer_path(@post_image.customer) do %>
+              <%= image_tag @post_image.customer.profile_image, size: "30x30" %>
+            <% end %>
+              <%= @post_image.title %>
             <span id="favorite_button_<%= @post_image %>">
               <%= render "public/favorites/favorite", post_image: @post_image %>
             </span>
