@@ -10,7 +10,7 @@
               <%= image_tag @post_image.customer.profile_image, size: "30x30" %>
             <% end %>
               <%= @post_image.title %>
-            <span id="favorite_button_<%= @post_image %>">
+            <span id="favorite_button_<%= @post_image.id %>">
               <%= render "public/favorites/favorite", post_image: @post_image %>
             </span>
             <!--投稿者なら表示される編集ボタン、削除ボタン-->

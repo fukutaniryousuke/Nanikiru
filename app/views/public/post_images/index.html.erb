@@ -21,7 +21,7 @@
                   <% end %>
                 <% end %>
                コメント<%= post_image.post_comments.count %>件
-               <span id="favorite_button_<%= @post_image %>">
+               <span id="favorite_button_<%= post_image.id %>">
                  <%= render "public/favorites/favorite", post_image: post_image %>
                </span>
                  <%= post_image.favorites.count %> いいね

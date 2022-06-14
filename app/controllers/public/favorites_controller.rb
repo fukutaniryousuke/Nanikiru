@@ -7,13 +7,16 @@ class Public::FavoritesController < ApplicationController
     favorite.save
     # redirect_back(fallback_location: root_path)
     post_image.create_notification_by(current_customer)
-
+    respond_to :js
   end
 
   def destroy
     post_image = PostImage.find(params[:post_image_id])
     favorite = current_customer.favorites.find_by(post_image_id: post_image.id)
+    p favorite
     favorite.destroy
+
+    # respond_to :js
     # redirect_back(fallback_location: root_path)
   end
 
