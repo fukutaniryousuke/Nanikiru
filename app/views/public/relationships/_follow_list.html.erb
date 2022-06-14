@@ -25,13 +25,7 @@
          フォロワー<%= customer.followers.count %>人
       </td>
       <td>
-        <% if current_customer.following?(customer) %>
-          <%= link_to customer_relationships_path(customer), method: :delete,  class: "btn btn-light border border-dark" do %>
-          外す<i class="fa-solid fa-user-check"></i>
-          <% end %>
-        <% else %>
-          <%= link_to "フォローする", customer_relationships_path(customer), method: :post, class: "btn btn-primary" %>
-        <% end %>
+        <%= render "public/relationships/follow", customer: customer %>
       </td>
       <td>
         <% if current_customer != customer && current_customer.following?(customer) && customer.following?(current_customer) %>
