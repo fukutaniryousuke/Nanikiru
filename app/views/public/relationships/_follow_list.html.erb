@@ -5,7 +5,6 @@
       <th>名前</th>
       <th><i class="fa-solid fa-users"></i>フォロー</th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -24,12 +23,21 @@
          フォロー<%= customer.followings.count %>人<br>
          フォロワー<%= customer.followers.count %>人
       </td>
-      <td id="follow_butto">
-        <%= render "public/relationships/follow", customer: customer %>
-      </td>
       <td>
-        <% if current_customer != customer && current_customer.following?(customer) && customer.following?(current_customer) %>
-          <%= link_to "メッセージを送る", chat_path(customer.id), class: "btn btn-light border border-dark" %>
+        <% if current_customer == customer %>
+        
+        <% else %>
+          <% if current_customer.following?(customer) %>
+            <%= link_to customer_relationships_path(customer), method: :delete, class: "mr-3 btn btn-light border border-dark" do %>
+            外す<i class="fa-solid fa-user-check"></i>
+            <% end %>
+          <% else %>
+            <%= link_to "フォローする", customer_relationships_path(customer), method: :post, class: "btn btn-primary" %>
+          <% end %>
+            <% if current_customer != customer && current_customer.following?(customer) && customer.following?(current_customer) %>
+              <%= link_to "メッセージを送る", chat_path(customer.id), class: "btn btn-light border border-dark" %>
+            <% end %>
+            
         <% end %>
       </td>
     </tr>
