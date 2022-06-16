@@ -24,7 +24,9 @@
                <span id="favorite_button_<%= post_image.id %>">
                  <%= render "public/favorites/favorite", post_image: post_image %>
                </span>
-                 <%= post_image.favorites.count %> いいね
+              <span id="favorite_count_<%= post_image.id %>">
+                 <%= render "public/favorites/count", post_image: post_image %>
+              </span>
             </div>
           </div>
         <% end %>
