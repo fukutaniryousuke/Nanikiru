@@ -13,13 +13,13 @@ class Public::PostCommentsController < ApplicationController
   def destroy
     PostComment.find(params[:id]).destroy
   end
-  
+
   def set_post_image
      @post_image = PostImage.find(params[:post_image_id])
   end
 
   private
-  
+
 
   def post_comment_params
     params.require(:post_comment).permit(:comment)
