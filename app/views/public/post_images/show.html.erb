@@ -7,7 +7,11 @@
       <div class="col-md-6">
           <h5 class="card-header">
             <%= link_to customer_path(@post_image.customer) do %>
-              <%= image_tag @post_image.customer.profile_image, size: "30x30" %>
+              <% if @post_image.customer.profile_image.attached? %>
+                <%= image_tag @post_image.customer.profile_image, size: "30x30" %>
+              <% else %>
+                <%= image_tag "majan", size: "30x30", class: "profile_image" %>
+              <% end %>
             <% end %>
               <%= @post_image.title %>
             <span id="favorite_button_<%= @post_image.id %>">
