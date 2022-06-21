@@ -23,6 +23,10 @@ class Public::ChatsController < ApplicationController
     @chat.save
   end
 
+  def destroy
+    @chat = Chat.find(params[:id])
+    @chat.destroy
+  end
 
   private
 
