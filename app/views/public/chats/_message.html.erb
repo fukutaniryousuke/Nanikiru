@@ -1,0 +1,4 @@
+<P style="text-align: right;">
+  <span class="chat-right"><%= chat.message %></span>
+  <%= link_to "削除", chat_path(chat), method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true %>
+</P>
