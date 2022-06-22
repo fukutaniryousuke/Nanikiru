@@ -3,6 +3,7 @@ class Public::ChatsController < ApplicationController
   before_action :reject_non_related, only: [:show]
   def show
     @customer = Customer.find(params[:id])
+    
     rooms = current_customer.customer_rooms.pluck(:room_id)
     customer_rooms = CustomerRoom.find_by(customer_id: @customer.id, room_id: rooms)
 
@@ -21,10 +22,13 @@ class Public::ChatsController < ApplicationController
   def create
     @chat = current_customer.chats.new(chat_params)
     @chat.save
+    @room = Room.find(params[:chat][:room_id])
+    @chats = @room.chats
   end
 
   def destroy
     @chat = Chat.find(params[:id])
+    @chats = @chat.room.chats
     @chat.destroy
   end
 

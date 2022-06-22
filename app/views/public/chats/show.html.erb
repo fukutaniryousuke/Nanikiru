@@ -6,13 +6,7 @@
       </h2>
 
       <div class="message" style="width: 500px;">
-        <% @chats.each do |chat| %>
-          <% if chat.customer_id == current_customer.id %>
-             <%= render "public/chats/message", chat: chat %>
-          <% else %>
-            <P style="text-align: left;"><span class="chat-left"><%= chat.message %></span></P>
-          <% end %>
-        <% end %>
+　　　　　　<%= render "public/chats/message", chats: @chats %>
       </div>
        <%= form_with model: @chat, local: false do |f| %>
           <%= f.text_field :message, class: "mt-2 chat_field" %>

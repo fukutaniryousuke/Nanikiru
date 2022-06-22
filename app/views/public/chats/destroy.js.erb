@@ -1,2 +1,2 @@
-$('.message').append("<%= j(render "public/chats/message", chat: @chat) %>");
+$('.message').html("<%= j(render "public/chats/message", chats: @chats) %>");
 $('input[type=text]').val("")
