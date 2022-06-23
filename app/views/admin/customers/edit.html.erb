@@ -2,6 +2,7 @@
   <div class="row">
     <div class="m-5 mx-auto">
       <h2><%= @customer.name %>さん編集</h2>
+        <%= render "layouts/errors", obj: @customer %>
         <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
           <div class="form-group">
             <%= f.label :id, "会員ID" %>
