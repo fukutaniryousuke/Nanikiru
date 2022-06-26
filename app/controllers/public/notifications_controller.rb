@@ -4,8 +4,8 @@ class Public::NotificationsController < ApplicationController
      @notifications = current_customer.passive_notifications
      @notifications.where(checked: false).each do |notification|
           notification.update(checked: true)
-    notification = @notifications.where.not(visitor_id: current_customer.id)
      end
+     
   end
 
    def destroy_all

@@ -5,8 +5,9 @@ class Public::FavoritesController < ApplicationController
     post_image = PostImage.find(params[:post_image_id])
     favorite = current_customer.favorites.new(post_image_id: post_image.id)
     favorite.save
-    
-    post_image.create_notification_favorite!(current_customer)
+    if post_image.customer_id != current_customer.id
+      post_image.create_notification_favorite!(current_customer)
+    end
     respond_to :js
   end
 

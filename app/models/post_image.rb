@@ -19,7 +19,9 @@ class PostImage < ApplicationRecord
       save_notification_comment!(current_customer, post_comment_id, temp_id["customer_id"])
     end
 
-    save_notification_comment!(current_customer, post_comment_id, customer_id)
+    if self.customer_id != current_customer.id
+      save_notification_comment!(current_customer, post_comment_id, customer_id)
+    end
   end
 
   def save_notification_comment!(current_customer, post_comment_id, visited_id)
