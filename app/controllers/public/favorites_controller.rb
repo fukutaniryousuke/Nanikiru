@@ -5,8 +5,8 @@ class Public::FavoritesController < ApplicationController
     post_image = PostImage.find(params[:post_image_id])
     favorite = current_customer.favorites.new(post_image_id: post_image.id)
     favorite.save
-    # redirect_back(fallback_location: root_path)
-    post_image.create_notification_by(current_customer)
+    
+    post_image.create_notification_favorite!(current_customer)
     respond_to :js
   end
 
@@ -16,8 +16,6 @@ class Public::FavoritesController < ApplicationController
     p favorite
     favorite.destroy
 
-    # respond_to :js
-    # redirect_back(fallback_location: root_path)
   end
 
   def set_post_image

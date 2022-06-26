@@ -36,8 +36,8 @@ class Public::CustomersController < ApplicationController
   end
 
   def favorites
-    favorites= Favorite.where(customer_id: current_customer.id).pluck(:post_image_id)
-    @favorite_post_images = PostImage.find(favorites)
+    favorites = Favorite.where(customer_id: current_customer.id).pluck(:post_image_id)
+    @favorite_post_images = PostImage.where(id: favorites)
   end
 
   private
