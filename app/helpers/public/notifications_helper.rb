@@ -14,7 +14,7 @@ module Public::NotificationsHelper
           tag.a(notification.visiter.name, href:customer_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:post_image_path(notification.post_image_id), style:"font-weight: bold;")+"にいいねしました"
         when "post_comment" then
             @comment = PostComment.find_by(id: @visiter_post_comment)&.comment
-            tag.a(@visiter.name, href:customer_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:post_image_path(notification.post_image_id), style:"font-weight: bold;")+"にコメントしました"
+            tag.a(@visiter.name, href:customer_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('投稿', href:post_image_path(notification.post_image_id), style:"font-weight: bold;")+"にコメントしました"
       end
   end
 
