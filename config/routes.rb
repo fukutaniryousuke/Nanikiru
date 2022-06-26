@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       resource :relationships, only:[:create, :destroy], controller: "public/relationships"#フォロー機能
       get '/followings' => 'public/relationships#followings'#フォロー一覧
       get '/followers' => 'public/relationships#followers'#フォロワー一覧
-      get '/favorites' => 'public/customers#favorites'
+      get '/favorites' => 'public/customers#favorites'#いいね一覧
     end
     get 'customers/:id/unsubscribe' => 'public/customers#unsubscribe', as: "unsubscribe"
     patch '/customers/:id/withdrawal' => 'public/customers#withdrawal', as: "withdrawal"#退会
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
        resources :post_comments, only:[:create, :destroy], controller: "public/post_comments"#コメント機能
     end
     resources :chats, only:[:show, :create, :destroy], controller: "public/chats"#DM機能
-    resources :notifications, only:[:index], controller: "public/notifications" 
+    resources :notifications, only:[:index], controller: "public/notifications" #通知一覧
     delete "/notifications/destroy_all" => "public/notifications#destroy_all", as: "destroy_all"
     get '/search' => 'public/searchs#search'#検索機能
   end
