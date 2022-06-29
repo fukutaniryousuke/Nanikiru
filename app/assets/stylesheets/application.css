@@ -29,8 +29,12 @@ body {
 .field_with_errors {
   display: contents;
 }
-.edit, .show, .table {
+.edit, .table {
   background-color: white;
+}
+.show {
+  background-color: white;
+  height: 500px;
 }
 h1, h2 {
   font-family: STKaiti, cursive;;
