@@ -3,11 +3,11 @@
     <div class="mx-auto">
       <h2 class="top font-italic">何切る？</h2>
       <p class="text-center">※ログイン状態です</p>
-      <%= image_tag "top.jpg", size: "600x300" %>
-      <%= link_to about_path, class: "mt-4 text-light btn btn-warning btn-block" do %>
+      <%= image_tag "top.jpg", size: "600x300", class: "top_image" %>
+      <%= link_to about_path, class: "mt-4 shadow-lg text-light btn btn-warning btn-block" do %>
        ABOUT
       <% end %>
-      <%= link_to destroy_customer_session_path, method: :delete, class: "mt-4 text-light btn btn-secondary btn-block" do %>
+      <%= link_to destroy_customer_session_path, method: :delete, class: "mt-4 shadow-lg text-light btn btn-secondary btn-block" do %>
          <i class="fas fa-sign-out"></i>ログアウト
       <% end %>
     </div>
