@@ -8,8 +8,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                
+            <li>
+               <%= link_to admin_post_images_path, class: "nav-item text-light" do %>
+                投稿一覧
+               <% end %>
             </li>
             <li>
                 <%= link_to admin_top_path, class: "nav-item text-light" do %>

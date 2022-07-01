@@ -1,5 +1,9 @@
 class Admin::PostImagesController < ApplicationController
   
+  def index
+    @post_images = PostImage.all.order(created_at: :desc)
+  end
+  
   def show
     @post_image = PostImage.find(params[:id])
   end
