@@ -1,0 +1,32 @@
+<div class="container" style="padding-top: 100px;">
+  <div class="card shadow-lg" style="border-radius: 1em;">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <%= image_tag @post_image.image, size: "555x400" %>
+      </div>
+      <div class="col-md-6">
+          <h5 class="card-header">
+            <%= link_to admin_customer_path(@post_image.customer) do %>
+              <% if @post_image.customer.profile_image.attached? %>
+                <%= image_tag @post_image.customer.profile_image, size: "30x30" %>
+              <% else %>
+                <%= image_tag "majan", size: "30x30", class: "profile_image" %>
+              <% end %>
+            <% end %>
+              <%= @post_image.title %>
+          </h5>
+        <div class="card-body">
+          <div class="card-text"><%= @post_image.body %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <div class="row">
+    <div class="col-md-10">
+      <p class="mt-2">コメント</p>
+      <div class="comment_index"><%= render "admin/post_comments/index", post_image: @post_image %></div>
+    </div>
+   </div>
+
+</div>

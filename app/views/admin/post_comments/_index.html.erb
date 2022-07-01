@@ -1,0 +1,25 @@
+<% post_image.post_comments.each do |post_comment| %>
+  <table class="table">
+    <div style="background-color: white;">
+      <tr>
+      <td>
+        <%= link_to admin_customer_path(post_comment.customer) do %>
+          <% if post_comment.customer.profile_image.attached? %>
+            <%= image_tag post_comment.customer.profile_image, size: "30x30" %>
+          <% else %>
+            <%= image_tag "majan", size: "30x30", class: "profile_image" %>
+          <% end %>
+        <% end %>
+      </td>
+      <td><%= link_to post_comment.customer.name, admin_customer_path(post_comment.customer) %></td>
+      <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= post_comment.comment %></td>
+      <td>
+        <%= link_to admin_post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "text-danger" do %>
+          <i class="fa-solid fa-trash-can"></i>
+        <% end %>
+      </td>
+      </tr>
+    </div>
+  </table>
+<% end %>

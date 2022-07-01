@@ -36,6 +36,9 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/top' => 'home#top'
     resources :customers, only:[:show, :edit, :update]
+    resources :post_images, only:[:show, :destroy] do
+      resources :post_comments, only:[:destroy]
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
