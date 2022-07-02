@@ -21,7 +21,11 @@
                   <% end %>
                 <% end %>
                コメント<%= post_image.post_comments.count %>件
-                 <%= render "public/favorites/favorite", post_image: post_image %>
+                 <% if post_image.favorited_by?(current_customer) %>
+                     <i class="fa-solid fa-heart" style="color: red;"></i>
+                 <% else %>
+                      <i class="fa-regular fa-heart"></i>
+                 <% end %>
                  <%= post_image.favorites.count %> いいね
             </div>
           </div>

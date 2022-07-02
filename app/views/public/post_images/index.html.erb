@@ -25,13 +25,11 @@
                   <% end %>
                 <% end %><br>
                コメント<%= post_image.post_comments.count %>件
-               <span id="favorite_button_<%= post_image.id %>">
                  <% if post_image.favorited_by?(current_customer) %>
                      <i class="fa-solid fa-heart" style="color: red;"></i>
                  <% else %>
                       <i class="fa-regular fa-heart"></i>
                  <% end %>
-               </span>
               <span id="favorite_count_<%= post_image.id %>">
                  <%= render "public/favorites/count", post_image: post_image %>
               </span>
