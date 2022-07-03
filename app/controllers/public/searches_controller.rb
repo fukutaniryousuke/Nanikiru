@@ -13,7 +13,6 @@ class Public::SearchesController < ApplicationController
       if method == 'perfect'  # 選択した検索方法がが完全一致だったら
         Customer.where(name: content)
       elsif method == 'partial'# 選択した検索方法がが部分一致だったら
-        # Customer.where('name LIKE ?', '%'+'content'+'%')
         Customer.where("name LIKE?","%#{content}%")
       else
         Customer.all
