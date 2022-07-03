@@ -54,9 +54,9 @@ class Public::PostImagesController < ApplicationController
 
   def ensure_customer
     @post_image = PostImage.find(params[:id])
-   if @post_image.customer != current_customer
+    if @post_image.customer != current_customer
       redirect_to post_image_path(@post_image)
-   end
+    end
   end
 
 end
