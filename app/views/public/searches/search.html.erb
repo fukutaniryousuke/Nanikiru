@@ -1,0 +1,5 @@
+<% if @model =='customer'%>
+  <%= render 'public/customers/search_index', customers: @records %>
+<% else @model == 'post_image' %>
+  <%= render 'public/post_images/search_index', post_images: @records %>
+<% end %>

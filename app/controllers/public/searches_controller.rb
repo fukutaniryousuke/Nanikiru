@@ -1,4 +1,4 @@
-class Public::SearchsController < ApplicationController
+class Public::SearchesController < ApplicationController
   def search
     @model = params["model"] # 選択したmodelの値を@modelに代入
     @content = params["content"] # 検索ワードを@contentに代入

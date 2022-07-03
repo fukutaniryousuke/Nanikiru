@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :chats, only:[:show, :create, :destroy], controller: "public/chats"#DM機能
     resources :notifications, only:[:index], controller: "public/notifications" #通知一覧
     delete "/notifications/destroy_all" => "public/notifications#destroy_all", as: "destroy_all"
-    get '/search' => 'public/searchs#search'#検索機能
+    get '/search' => 'public/searches#search'#検索機能
   end
 
 #管理者側
