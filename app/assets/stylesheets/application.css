@@ -25,9 +25,12 @@ body {
   font-weight: bold;
   line-height: 2rem;
 }
-
+#error_explanation {
+  background-color: rgba(255, 0 , 0, 0.2)
+}
 .field_with_errors {
   display: contents;
+  color: red;
 }
 .edit, .table {
   background-color: white;

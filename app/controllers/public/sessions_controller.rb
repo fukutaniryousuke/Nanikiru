@@ -27,7 +27,7 @@ class Public::SessionsController < Devise::SessionsController
     sign_in customer
     redirect_to customer_path(customer), notice: "ゲストとしてログインしました"
   end
-  
+
   def customer_state #退会しているか判断
     #入力されたemaiからアカウントを1件取得
     @customer = Customer.find_by(email: params[:customer][:email])
@@ -35,6 +35,7 @@ class Public::SessionsController < Devise::SessionsController
     return if !@customer
     #取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted
+      flash[:notice] = 'お客様のアカウントは現在ご使用できません。'
       redirect_to new_customer_registration_path
     end
   end
