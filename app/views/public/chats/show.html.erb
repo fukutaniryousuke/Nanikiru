@@ -16,7 +16,7 @@
        <%= form_with model: @chat, local: false do |f| %>
           <%= f.text_field :message, class: "mt-2 chat_field" %>
           <%= f.hidden_field :room_id %>
-          <%= f.submit "送信", class: "text-primary" %>
+          <%= f.submit "送信", class: "mb-5 text-primary" %>
        <% end %>
     </div>
   </div>
