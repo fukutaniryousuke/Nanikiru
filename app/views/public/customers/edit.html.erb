@@ -1,27 +1,27 @@
 <div class="container" style="padding-top: 100px;">
   <div class="row">
-    <div class="edit p-5 m-5 mx-auto shadow-lg rounded">
-      <h2><%= image_tag "hatu", size: "70x70" %>プロフィールを編集<%= image_tag "hatu", size: "70x70" %></h2>
+    <div class="edit mt-4 col-sm-12 col-md-8 col-lg-5 mx-auto shadow-lg rounded">
+      <h5 style="font-weight: bold; padding-left: 75px;"><%= image_tag "hatu", size: "50x50" %>プロフィールを編集<%= image_tag "hatu", size: "50x50", class: "edit-image"  %></h5>
       <%= render "layouts/errors", obj: @customer %>
         <%= form_with model: @customer, url: {controller: 'public/customers', action: 'update' } do |f| %>
           <div class="form-group row">
-            <%= f.label :id, "会員ID", class: "col-4" %>
+            <%= f.label :id, "会員ID", class: "pl-4 col-md-4" %>
             <%= @customer.id %>
           </div>
           <div class="form-group row">
-            <%= f.label :name, "名前", class: "col-4" %>
-            <%= f.text_field :name %>
+            <%= f.label :name, "名前", class: "pl-4 col-md-4" %>
+            <%= f.text_field :name, class: "col-md-6" %>
           </div>
           <div class="form-group row">
-            <%= f.label :profile_image, "画像", class: "col-4" %>
-            <%= f.file_field :profile_image, accept: "image/*", class: "col-8" %>
+            <%= f.label :profile_image, "画像", class: "pl-4 col-md-4" %>
+            <%= f.file_field :profile_image, accept: "image/*", class: "col-md-8" %>
           </div>
           <div class="form-group row">
-            <%= f.label :email, "メールアドレス", class: "col-4" %>
-            <%= f.email_field :email %>
+            <%= f.label :email, "メールアドレス", class: "pl-4 col-md-4" %>
+            <%= f.email_field :email, class: "col-md-6" %>
           </div>
           <div class="pt-5 text-center">
-           <%= f.submit "変更を保存" %>
+           <%= f.submit "変更を保存", class: "btn btn-info" %>
           </div>
         <% end %>
         <div class="text-right">
