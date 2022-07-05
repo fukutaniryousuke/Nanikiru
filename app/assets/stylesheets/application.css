@@ -149,6 +149,9 @@ h1, h2, h5 {
     background-color: #006633;
     height: 200px;
   }
+  #customer-id {
+    padding-left: 30px;
+  }
 }
 
 @media screen and (max-width:768px) {
@@ -156,11 +159,17 @@ h1, h2, h5 {
     background-color: #006633;
     height: 200px;
   }
+  #customer-id {
+    padding-left: 30px;
+  }
 }
 
 @media screen and (max-width:425px) {
   .navbar-collapse {
     background-color: #006633;
     height: 200px;
+  }
+  #customer-id {
+    padding-left: 30px;
   }
 }

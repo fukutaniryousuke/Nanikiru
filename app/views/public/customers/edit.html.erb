@@ -6,7 +6,7 @@
         <%= form_with model: @customer, url: {controller: 'public/customers', action: 'update' } do |f| %>
           <div class="form-group row">
             <%= f.label :id, "会員ID", class: "pl-4 col-md-4" %>
-            <%= @customer.id %>
+            <span id="customer-id"><%= @customer.id %></span>
           </div>
           <div class="form-group row">
             <%= f.label :name, "名前", class: "pl-4 col-md-4" %>
