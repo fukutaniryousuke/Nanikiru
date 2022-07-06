@@ -4,6 +4,7 @@
   <% end %>
   <div class="row">
     <div class="show p-3 col-md-4 shadow-lg rounded px-0 my-5">
+      <%= link_to "麻雀本を探す", books_search_path %>
       <h1>
         <% if current_customer == @customer %>
          <%= image_tag "senten", size: "50x50" %>マイページ<%= image_tag "senten", size: "50x50" %>
