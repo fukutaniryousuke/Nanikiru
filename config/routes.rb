@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :notifications, only:[:index], controller: "public/notifications" #通知一覧
     delete "/notifications/destroy_all" => "public/notifications#destroy_all", as: "destroy_all"
     get '/search' => 'public/searches#search'#検索機能
+    get '/books/search' => "public/books#search"
   end
 
 #管理者側
