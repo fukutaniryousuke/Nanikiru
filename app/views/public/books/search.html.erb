@@ -15,10 +15,13 @@
           <% @books.each do |book| %>
             <div class ="mr-2 mb-2 card mx-auto" style="width: 15rem;">
         <!--#以下のコードではは画像、タイトル、著者名、商品の説明を表示させています。-->
-              <%= link_to (image_tag(book.medium_image_url, size: "150x200")), book.item_url, style: "padding-left: 40px;" %>
+              <%= link_to (image_tag(book.large_image_url, size: "150x200")), book.item_url, style: "padding-left: 40px;" %>
               <div class="card-body">
                 <div class="card-title"><%= book.title %></div>
                 <div class="card-text"><%= book.author %></div>
+                <div class="card-text text-danger font-weight-bold">
+                  ¥<%= book.item_price.to_s(:delimited) %>
+                </div>
               </div>
             </div>
           <% end %>

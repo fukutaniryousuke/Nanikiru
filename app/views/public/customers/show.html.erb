@@ -3,8 +3,10 @@
    <p id="notice" class="text-center"><%= notice %></p>
   <% end %>
   <div class="row">
-    <div class="show p-3 col-md-4 shadow-lg rounded px-0 my-5">
-      <%= link_to "麻雀本を探す", books_search_path %>
+    <div class="show mx-auto p-3 col-md-4 shadow-lg rounded px-0 my-5">
+      <%= link_to books_search_path, class: "btn btn-success" do %>
+        <i class="fa-solid fa-graduation-cap"></i>麻雀本を探す
+      <% end %>
       <h1>
         <% if current_customer == @customer %>
          <%= image_tag "senten", size: "50x50" %>マイページ<%= image_tag "senten", size: "50x50" %>
