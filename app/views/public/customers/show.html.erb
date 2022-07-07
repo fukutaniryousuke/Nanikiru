@@ -4,8 +4,10 @@
   <% end %>
   <div class="row">
     <div class="show mx-auto p-3 col-md-4 shadow-lg rounded px-0 my-5">
-      <%= link_to books_search_path, class: "btn btn-success" do %>
-        <i class="fa-solid fa-graduation-cap"></i>麻雀本を探す
+      <% if current_customer == @customer %>
+        <%= link_to books_search_path, class: "btn btn-success" do %>
+          <i class="fa-solid fa-graduation-cap"></i>麻雀本を探す
+        <% end %>
       <% end %>
       <h1>
         <% if current_customer == @customer %>
