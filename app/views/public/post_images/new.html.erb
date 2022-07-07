@@ -16,6 +16,7 @@
           <%= f.label :image, "画像", class: "col-md-2" %>
           <%= f.file_field :image, accept: "image/*" %>
         </div>
+        <img id="preview" style="width:80%;">
         <div class="form-group row">
           <%= f.label :body, "コメント", class: "col-md-3" %>
           <%= f.text_area :body, class:"form-control", size: "80x10" %>
@@ -25,3 +26,13 @@
     </div>
   </div>
 </div>
+<!--プレビュー表示-->
+<script>
+  $('#post_image_image').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#preview").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+</script>
