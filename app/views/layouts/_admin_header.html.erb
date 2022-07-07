@@ -1,30 +1,29 @@
-<header class="shadow-sm">
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #006633; height: 80px;">
+<header style="background-color: #006633;">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-     <a class="navbar-brand ml-5" href="/" style="font-size:24px; color: #ffffff;">Nanikiru</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand ml-5" href="/" style="font-size:24px; color: #ffffff;">Nanikiru</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-            <li>
-               <%= link_to admin_post_images_path, class: "nav-item text-light" do %>
-                投稿一覧
-               <% end %>
-            </li>
-            <li>
-                <%= link_to admin_top_path, class: "nav-item text-light" do %>
-                 会員一覧
-                <% end %>
-            </li>
-            <li>
-                <%= link_to destroy_customer_session_path, method: :delete, class: "nav-item text-light" do %>
-                 ログアウト
-                <% end %>
-            </li>
+          <li>
+             <%= link_to admin_post_images_path, class: "nav-item text-light" do %>
+              投稿一覧
+             <% end %>
+          </li>
+          <li>
+             <%= link_to admin_top_path, class: "nav-item text-light" do %>
+              会員一覧
+             <% end %>
+          </li>
+          <li>
+             <%= link_to destroy_customer_session_path, method: :delete, class: "nav-item text-light" do %>
+              ログアウト
+             <% end %>
+          </li>
         </ul>
       </div>
     </div>
-  </nav>    
-</header>    
+  </nav>
+</header>

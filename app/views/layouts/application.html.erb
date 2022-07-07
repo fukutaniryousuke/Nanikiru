@@ -11,7 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
+  <body>
     <% if customer_signed_in? %>
       <%= render "layouts/login_header" %>
     <% elsif admin_signed_in? %>

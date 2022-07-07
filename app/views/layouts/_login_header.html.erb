@@ -1,42 +1,42 @@
-<header class="fixed-top shadow-sm login_header">
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #006633; height: 80px;">
+<header class="fixed-top" style="background-color: #006633;">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-     <a class="navbar-brand ml-5" href="/" style="font-size:24px; color: #ffffff;">Nanikiru</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand ml-5" href="/" style="font-size:24px; color: #ffffff;">Nanikiru</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <!--検索窓-->
         <div style="margin-left: 80px;"><%= render "public/searches/form" %></div>
         <ul class="navbar-nav ml-auto">
-        <li>
-           <%= link_to post_images_path, class: "nav-item text-light" do %>
-            <i class="fas fa-home"></i>投稿一覧
-           <% end %>
-        </li>
-        <li>
-           <%= link_to customer_path(current_customer), class: "nav-item text-light" do %>
-             <i class="far fa-user"></i>マイページ
-           <% end %>
-        </li>
-        <li class="nav-item text-light">
-           <%= link_to new_post_image_path, class: "nav-item text-light" do %>
-            <i class="fas fa-pencil"></i>投稿する
-           <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_customer_session_path, method: :delete, class: "nav-item text-light" do %>
-             <i class="fas fa-sign-out"></i>ログアウト
-          <% end %>
-        </li>
-        <% if unchecked_notifications.any? %>
-         <i class="fa fa-circle" style="color: gold;"></i>
-        <% end %>
-        <li>
-            <%= link_to notifications_path, class: "nav-item text-light btn-default" do %>
-            <i class="fa-solid fa-bell"></i>通知
+          <li class="nav-item">
+             <%= link_to post_images_path, class: "text-light" do %>
+              <i class="fas fa-home"></i>投稿一覧
+             <% end %>
+          </li>
+          <li class="nav-item">
+             <%= link_to customer_path(current_customer), class: "text-light" do %>
+               <i class="far fa-user"></i>マイページ
+             <% end %>
+          </li>
+          <li class="nav-item">
+             <%= link_to new_post_image_path, class: "text-light" do %>
+              <i class="fas fa-pencil"></i>投稿する
+             <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_customer_session_path, method: :delete, class: "text-light" do %>
+               <i class="fas fa-sign-out"></i>ログアウト
             <% end %>
-        </li>
+          </li>
+          <li class="nav-item">
+            <%= link_to notifications_path(current_customer) do %>
+              <i class="fas fa-bell fa-2x ml-3" style="color:lightsteelblue;"></i>
+            <% end %>
+            <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle fa-xs n-circle" style="color:steelblue;"></i>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>
