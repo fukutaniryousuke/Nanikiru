@@ -8,6 +8,13 @@ class PostImage < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
   validates :image, presence: true
+  validate :image_type
+
+  def image_type
+    if !image.blob.content_type.in?(%('image/jpeg image/png'))
+      errors.add(:image, 'はjpegまたはpng形式でアップロードしてください')
+    end
+  end
 
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)
