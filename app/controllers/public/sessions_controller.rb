@@ -22,18 +22,18 @@ class Public::SessionsController < Devise::SessionsController
     customer_path(current_customer)
   end
 
-  def guest_sign_in #ゲストログイン機能
+  def guest_sign_in # ゲストログイン機能
     customer = Customer.guest
     sign_in customer
     redirect_to customer_path(customer), notice: "ゲストとしてログインしました"
   end
 
-  def customer_state #退会しているか判断
-    #入力されたemaiからアカウントを1件取得
+  def customer_state # 退会しているか判断
+    # 入力されたemaiからアカウントを1件取得
     @customer = Customer.find_by(email: params[:customer][:email])
-    #アカウントを取得できなかった場合、このメソッドを終了する
+    # アカウントを取得できなかった場合、このメソッドを終了する
     return if !@customer
-    #取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
+    # 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @customer.valid_password?(params[:customer][:password]) && @customer.is_deleted
       flash[:notice] = 'お客様のアカウントは現在ご使用できません。'
       redirect_to new_customer_registration_path

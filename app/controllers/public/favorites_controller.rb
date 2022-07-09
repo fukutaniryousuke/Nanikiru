@@ -16,11 +16,9 @@ class Public::FavoritesController < ApplicationController
     favorite = current_customer.favorites.find_by(post_image_id: post_image.id)
     p favorite
     favorite.destroy
-
   end
 
   def set_post_image
-     @post_image = PostImage.find(params[:post_image_id])
+    @post_image = PostImage.find(params[:post_image_id])
   end
-
 end

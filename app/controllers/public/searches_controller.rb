@@ -10,22 +10,21 @@ class Public::SearchesController < ApplicationController
 
   def search_for(model, content, method)
     if model == 'customer'
-      if method == 'perfect'  # 選択した検索方法がが完全一致だったら
+      if method == 'perfect' # 選択した検索方法がが完全一致だったら
         Customer.where(name: content)
-      elsif method == 'partial'# 選択した検索方法がが部分一致だったら
-        Customer.where("name LIKE?","%#{content}%")
+      elsif method == 'partial' # 選択した検索方法がが部分一致だったら
+        Customer.where("name LIKE?", "%#{content}%")
       else
         Customer.all
       end
     elsif model == 'post_image'
-      if method == 'perfect'  # 選択した検索方法がが完全一致だったら
+      if method == 'perfect' # 選択した検索方法がが完全一致だったら
         PostImage.where(title: content)
       elsif method == 'partial' # 選択した検索方法がが部分一致だったら
-        PostImage.where("title LIKE?","%#{content}%")
+        PostImage.where("title LIKE?", "%#{content}%")
       else
         PostImage.all
       end
     end
   end
-
 end

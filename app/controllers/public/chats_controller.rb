@@ -7,13 +7,13 @@ class Public::ChatsController < ApplicationController
     rooms = current_customer.customer_rooms.pluck(:room_id)
     customer_rooms = CustomerRoom.find_by(customer_id: @customer.id, room_id: rooms)
 
-    unless customer_rooms.nil?
-      @room = customer_rooms.room
-    else
+    if customer_rooms.nil?
       @room = Room.new
       @room.save
       CustomerRoom.create(customer_id: current_customer.id, room_id: @room.id)
       CustomerRoom.create(customer_id: @customer.id, room_id: @room.id)
+    else
+      @room = customer_rooms.room
     end
     @chats = @room.chats
     @chat = Chat.new(room_id: @room.id)
@@ -38,11 +38,10 @@ class Public::ChatsController < ApplicationController
     params.require(:chat).permit(:message, :room_id)
   end
 
-  def reject_non_related #相互フォローしていなかったらcustomerのshow画面へ
+  def reject_non_related # 相互フォローしていなかったらcustomerのshow画面へ
     customer = Customer.find(params[:id])
     unless current_customer.following?(customer) && customer.following?(current_customer)
       redirect_to customer_path(customer)
     end
   end
-
 end
