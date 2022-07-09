@@ -20,7 +20,9 @@ body {
   background-repeat: repeat-y;
   background-position: center;
 }
-
+.index {
+  background-image: url(back.jpeg);
+}
 .about {
   font-weight: bold;
   line-height: 2rem;
