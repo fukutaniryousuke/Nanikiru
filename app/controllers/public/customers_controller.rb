@@ -5,7 +5,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @post_images = @customer.post_images.all.order(created_at: :desc)
+    @post_images = @customer.post_images.all.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def edit
