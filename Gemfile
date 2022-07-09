@@ -65,5 +65,6 @@ group :production do
 end
 
 gem 'rakuten_web_service'
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
 gem 'bootstrap4-kaminari-views'
+gem 'rubocop-airbnb'

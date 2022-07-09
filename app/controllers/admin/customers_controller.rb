@@ -8,7 +8,7 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
-  #会員情報を変更する
+  # 会員情報を変更する
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)

@@ -25,11 +25,10 @@ class Public::CustomersController < ApplicationController
   def unsubscribe
   end
 
-
   def withdrawal
     @customer = Customer.find(params[:id])
     if @customer.update(is_deleted: true)
-      reset_session #セッション情報を全て削除
+      reset_session # セッション情報を全て削除
       flash[:notice] = "退会いたしました。ご利用ありがとうございました。"
       redirect_to root_path
     end
@@ -46,11 +45,11 @@ class Public::CustomersController < ApplicationController
     params.require(:customer).permit(:name, :email, :profile_image)
   end
 
-  #ゲストユーザはプロフィール編集画面へ遷移できないようにする
+  # ゲストユーザはプロフィール編集画面へ遷移できないようにする
   def ensure_guest_customer
     @customer = Customer.find(params[:id])
     if @customer.name == "guestuser"
-      redirect_to customer_path(current_customer) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to customer_path(current_customer), notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
 
@@ -60,5 +59,4 @@ class Public::CustomersController < ApplicationController
       redirect_to customer_path(current_customer)
     end
   end
-
 end

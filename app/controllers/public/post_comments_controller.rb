@@ -15,11 +15,10 @@ class Public::PostCommentsController < ApplicationController
   end
 
   def set_post_image
-     @post_image = PostImage.find(params[:post_image_id])
+    @post_image = PostImage.find(params[:post_image_id])
   end
 
   private
-
 
   def post_comment_params
     params.require(:post_comment).permit(:comment)

@@ -10,5 +10,4 @@ class Admin::PostCommentsController < ApplicationController
   def set_post_image
     @post_image = PostImage.find(params[:post_image_id])
   end
-
 end
