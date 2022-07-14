@@ -1,0 +1,15 @@
+ja:
+  views:
+      pagination:
+        first: '最初'
+        last: '最後'
+        previous: '前'
+        next: '次'
+        truncate: '...'
+  activerecord:
+      attributes:
+        customer:
+          name: "名前"
+          email: "メール"
+          password: "パスワード"
+          password_confirmation: "パスワード（確認）"
