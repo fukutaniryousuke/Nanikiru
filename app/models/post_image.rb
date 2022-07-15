@@ -11,6 +11,10 @@ class PostImage < ApplicationRecord
   validate :image_type
 
   def image_type
+    if image.blob.nil?
+      return
+    end
+
     if !image.blob.content_type.in?(%('image/jpeg image/png'))
       errors.add(:image, 'はjpegまたはpng形式でアップロードしてください')
     end

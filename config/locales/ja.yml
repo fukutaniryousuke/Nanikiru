@@ -13,3 +13,7 @@ ja:
           email: "メール"
           password: "パスワード"
           password_confirmation: "パスワード（確認）"
+        post_image:
+          title: "局面"
+          body: "コメント"
+          image: "画像"
